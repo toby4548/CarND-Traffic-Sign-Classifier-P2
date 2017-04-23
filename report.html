@@ -13960,7 +13960,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Print out the top five softmax probabilities for the predictions on the German traffic sign images found on the web. </span>
@@ -13975,6 +13975,8 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
     <span class="c1">#Get prediction</span>
     <span class="n">top_5</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">top_k</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">sorted</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">img_normalize</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
 
+    <span class="nb">print</span><span class="p">(</span><span class="n">top_5</span><span class="p">)</span>
+    
 <span class="c1">#Plot prediction for each image</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_photo</span><span class="p">):</span>
     <span class="c1"># Prepare the grid</span>
@@ -14002,6 +14004,28 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 <div class="output_wrapper">
 <div class="output">
 
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>TopKV2(values=array([[ 49.51117706,   7.43571663,   3.79508185,   1.07551873,
+          0.17056794],
+       [ 32.14767456,  12.43948936,  11.60831261,   6.67387295,
+          5.50333357],
+       [ 35.5543251 ,  13.85436344,   7.18587494,   6.95846796,
+          4.62750387],
+       [ 55.74245071,  14.60551262,   5.07479906,   0.2315027 ,
+         -0.40491408],
+       [ 54.02745056,  10.47014713,   5.2862215 ,   5.20570374,
+          4.59344769]], dtype=float32), indices=array([[17, 34, 26, 20,  8],
+       [ 0,  4,  8, 40,  1],
+       [28, 11, 29, 30, 20],
+       [13, 15,  2, 38, 12],
+       [39, 31, 29,  2, 25]]))
+</pre>
+</div>
+</div>
 
 <div class="output_area">
 <div class="prompt"></div>
@@ -15367,19 +15391,6 @@ kRo4fNyfRgAAAABJRU5ErkJggg==
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
 </div>
 </div>
 
